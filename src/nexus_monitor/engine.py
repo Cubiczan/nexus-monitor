@@ -1,8 +1,8 @@
 """Sales and use tax nexus determination.
 
-CreditRiskMonitor's Item 4.02 was economic and physical nexus in jurisdictions
-where the company had not been collecting. Annual review structurally cannot
-catch a threshold crossed in month four.
+Economic and physical nexus in jurisdictions where the company has not been
+collecting. Annual review structurally cannot catch a threshold crossed in
+month four.
 
 This engine compares trailing activity to a dated threshold table. The table is
 config, not live statute. It is not tax advice. A CPA or sales-tax specialist

@@ -2,7 +2,7 @@
 
 > **Cubiczan stack** — [CHP](https://github.com/Cubiczan/consensus-hardening-protocol) · [control-spine](https://github.com/Cubiczan/control-spine) · **You are here:** `nexus-monitor`
 
-**Sales and use tax nexus determination.** Physical presence and economic thresholds, evaluated every period against trailing activity. CreditRiskMonitor's Item 4.02 was nexus the annual review never saw. `complyai` is marketing-compliance. This is the tax-threshold engine that was missing.
+**Sales and use tax nexus determination.** Physical presence and economic thresholds, evaluated every period against trailing activity — the review an annual checklist structurally cannot catch. `complyai` is marketing-compliance. This is the tax-threshold engine.
 
 Not tax advice. Thresholds are a **dated config snapshot** (1 August 2026). A CPA or sales-tax specialist signs the determination. The engine produces the computation they reperform.
 
