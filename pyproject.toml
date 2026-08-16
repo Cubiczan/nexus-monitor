@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexus-monitor"
+version = "0.1.0"
+description = "Deterministic sales-and-use-tax nexus monitor: physical and economic thresholds, trigger dates, exposure estimate, evidence pack."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Cubiczan", email = "sam@cubiczan.com" }]
+license = { text = "MIT" }
+keywords = ["nexus", "sales-tax", "wayfair", "icfr", "audit-trail"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+nexus-monitor = "nexus_monitor.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
