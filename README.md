@@ -28,6 +28,8 @@ pytest -q
 nexus-monitor examples/activity.json --period "H1 2026" --owner "Tax manager"
 ```
 
+UiPath can generate the same `activity.json` payload and hand it to this CLI when tax data lives in inboxes, spreadsheets, or staged evidence files.
+
 South Dakota at $100,000 of sales and a 4.5% rate estimates **$4,500** of uncollected tax. That number is in the tests. Re-run them. Then have a specialist replace the snapshot table with the statutes that actually apply to the entity.
 
 Uncollected nexus is a blocking finding. A signed at-risk pack is `PROVISIONAL_LOCK`, not evidence. Collection on and a named owner reach `LOCKED`.
