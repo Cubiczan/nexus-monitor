@@ -12,9 +12,9 @@ via the ``mcp-publisher`` CLI.
 
 Run it:
 
-    uvx --from nexus-monitor nexus-monitor-mcp
+    uvx --from 'nexus-monitor[mcp]' nexus-monitor-mcp
     # or, from a checkout:
-    python -m nexus_monitor.mcp_server
+    uv run --with 'mcp>=1.2,<2' --with . python -m nexus_monitor.mcp_server
 """
 
 from __future__ import annotations
