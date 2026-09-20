@@ -37,3 +37,13 @@ Uncollected nexus is a blocking finding. A signed at-risk pack is `PROVISIONAL_L
 ## Compliance spine
 
 Vendored `control-spine`. The snapshot date is in the foundation. The engine cannot countersign a filing position.
+
+## MCP server
+
+`src/nexus_monitor/mcp_server.py` publishes the engine over Model Context Protocol: a thin wrapper in the `io.github.Cubiczan` namespace (stdio transport) whose tools — `determine_nexus` and `nexus_evidence_pack` — call `nexus_monitor.engine` and `nexus_monitor.evidence` verbatim. All determination logic lives in the engine module; the wrapper adds no logic, touches no network, and serves the same dated threshold snapshot — config, not live statute. Not tax advice.
+
+```bash
+uvx --from nexus-monitor nexus-monitor-mcp
+# or from a checkout:
+python -m nexus_monitor.mcp_server
+```
