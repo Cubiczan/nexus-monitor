@@ -127,8 +127,8 @@ def nexus_evidence_pack(
         period_label,
         "",
         "DEFAULT_THRESHOLDS snapshot 2026-08-01",
+        invoked_via="mcp",
     )
-    pack["invoked_via"] = "mcp"
     return _jsonify(pack)
 
 

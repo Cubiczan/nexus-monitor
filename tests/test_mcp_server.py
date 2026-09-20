@@ -14,6 +14,7 @@ import pytest
 pytest.importorskip("mcp")
 
 from nexus_monitor import mcp_server  # noqa: E402
+from control_spine import canonical_hash
 
 
 def _tool_names() -> set[str]:
@@ -53,5 +54,8 @@ def test_evidence_pack_totals_population() -> None:
     assert pack["lock_state"] == "EXPLORING"
     assert pack["is_evidence"] is False
     assert pack["invoked_via"] == "mcp"
+    assert pack["spine"]["envelope_hash"] == canonical_hash(
+        {k: v for k, v in pack["spine"].items() if k != "envelope_hash"}
+    )
     assert pack["at_risk_count"] == 1
     assert pack["estimated_uncollected"] == "4500.00"

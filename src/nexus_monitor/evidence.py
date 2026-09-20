@@ -21,6 +21,7 @@ def evidence_pack(
     period_label: str,
     owner: str,
     threshold_snapshot: str,
+    invoked_via: str | None = None,
 ) -> dict:
     at_risk = [d for d in determinations if d.kind.value != "none" and not d.collecting]
     estimated = money(sum((d.exposure for d in at_risk), Decimal("0")))
@@ -65,6 +66,8 @@ def evidence_pack(
         )
         for d in at_risk
     )
+    if invoked_via is not None:
+        pack["invoked_via"] = invoked_via
     return seal(
         pack,
         engine_id=ENGINE_ID,
