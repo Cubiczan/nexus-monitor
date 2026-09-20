@@ -7,7 +7,7 @@ verbatim; nothing here touches the network, and the threshold table is the
 dated config snapshot, not live statute. Not tax advice.
 
 Follows the same publishing path proven by invoice-audit-engine /
-codesentinel: namespace ``io.github.Cubiczan``, stdio transport, published
+codesentinel: namespace ``io.github.icohangar-ops/nexus-monitor``, stdio transport, published
 via the ``mcp-publisher`` CLI.
 
 Run it:
