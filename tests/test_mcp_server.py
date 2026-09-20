@@ -47,8 +47,11 @@ def test_unknown_jurisdiction_is_a_loud_error() -> None:
 
 def test_evidence_pack_totals_population() -> None:
     pack = mcp_server.nexus_evidence_pack(
-        [_activity()], period_label="H1 2026", owner="Controller"
+        [_activity()], period_label="H1 2026"
     )
     assert pack["population_count"] == 1
+    assert pack["lock_state"] == "EXPLORING"
+    assert pack["is_evidence"] is False
+    assert pack["invoked_via"] == "mcp"
     assert pack["at_risk_count"] == 1
     assert pack["estimated_uncollected"] == "4500.00"

@@ -103,7 +103,6 @@ def determine_nexus(activity: dict[str, Any]) -> dict[str, Any]:
 def nexus_evidence_pack(
     activities: list[dict[str, Any]],
     period_label: str = "current",
-    owner: str = "",
 ) -> dict[str, Any]:
     """Build the nexus evidence pack a specialist can reperform without the source code.
 
@@ -115,20 +114,22 @@ def nexus_evidence_pack(
     Args:
         activities: Activity rows, same shape as determine_nexus's input.
         period_label: Close period label (e.g. "H1 2026").
-        owner: Named owner for sign-off. Must not be the engine.
+        Sign-off: MCP never accepts an owner — packs built here are always
+        unsigned (EXPLORING, not evidence). A named human signs via the CLI
+        (--owner), never through MCP.
     """
     determinations = tuple(
         determine(_activity_from_dict(row), _threshold_for(row["jurisdiction"]))
         for row in activities
     )
-    return _jsonify(
-        evidence_pack(
-            determinations,
-            period_label,
-            owner,
-            "DEFAULT_THRESHOLDS snapshot 2026-08-01",
-        )
+    pack = evidence_pack(
+        determinations,
+        period_label,
+        "",
+        "DEFAULT_THRESHOLDS snapshot 2026-08-01",
     )
+    pack["invoked_via"] = "mcp"
+    return _jsonify(pack)
 
 
 def main() -> None:
