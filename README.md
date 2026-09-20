@@ -40,10 +40,10 @@ Vendored `control-spine`. The snapshot date is in the foundation. The engine can
 
 ## MCP server
 
-`src/nexus_monitor/mcp_server.py` publishes the engine over Model Context Protocol: a thin wrapper in the `io.github.Cubiczan` namespace (stdio transport) whose tools — `determine_nexus` and `nexus_evidence_pack` — call `nexus_monitor.engine` and `nexus_monitor.evidence` verbatim. All determination logic lives in the engine module; the wrapper adds no logic, touches no network, and serves the same dated threshold snapshot — config, not live statute. Not tax advice. Evidence packs built through MCP are always unsigned — the tool takes no owner, so the spine renders `EXPLORING` and `is_evidence: false`; a named human signs via the CLI (`--owner`), never through MCP.
+`src/nexus_monitor/mcp_server.py` publishes the engine over Model Context Protocol: a thin wrapper in the `io.github.Cubiczan` namespace (stdio transport) whose tools — `determine_nexus` and `nexus_evidence_pack` — call `nexus_monitor.engine` and `nexus_monitor.evidence` verbatim. All determination logic lives in the engine module; the wrapper adds no logic, touches no network, and serves the same dated threshold snapshot — config, not live statute. Not tax advice. Evidence packs built through MCP are always unsigned — the tool takes no owner, so the spine renders `EXPLORING` and `is_evidence: false`; a named human signs via the CLI (`--owner`), never through MCP. MCP access is opt-in, keeping the deterministic core zero-dependency: the engine and CLI install with no runtime dependencies, and the MCP server ships behind the `mcp` extra (`pip install 'nexus-monitor[mcp]'`) — chosen over a hard dependency after prelint review, since a default install must stay dependency-free. CI installs `.[dev,mcp]` so the MCP tests still run.
 
 ```bash
-uvx --from nexus-monitor nexus-monitor-mcp
+uvx --from 'nexus-monitor[mcp]' nexus-monitor-mcp
 # or from a checkout:
-python -m nexus_monitor.mcp_server
+uv run --with 'mcp<2' --with . python -m nexus_monitor.mcp_server
 ```
